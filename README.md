@@ -8,7 +8,7 @@ The primary audience is students and job seekers exploring career options. Emplo
 
 The minimum viable dashboard covers national employment and median annual wages by occupation and occupational growth projections. It will have two interactive charts, clear source and period labels, responsive layouts, accessible controls, and useful loading, empty, and error states. Maps and modeling are deferred until the core application passes its checks.
 
-Use static HTML, CSS, and vanilla JavaScript with Plotly.js 4.1.1 loaded from its CDN. Python and pandas run locally to prepare committed JSON; the deployed website needs no Python, server application, or database. Hosting target: GitHub Pages. Nothing is deployed yet.
+Use static HTML, CSS, and vanilla JavaScript with Plotly.js 4.1.1 loaded from its CDN. Python and pandas run locally to prepare committed JSON; the deployed website needs no Python, server application, or database. Hosting target: GitHub Pages. Live website: https://manwillerc.github.io/JobMarketTrendsApplication/.
 
 ## Repository inspection — November 22, 2026
 
@@ -54,7 +54,7 @@ Never replace missing values with zero. Preserve negative growth. Validate dupli
 - [x] **Phase 5 — Build charts:** implement a bar chart and scatter plot with real data, units, source periods, attribution, and tooltips. Acceptance: all charts render correctly.
 - [x] **Phase 6 — Polish interactions:** verify filters, reset, resizing, keyboard access, focus, contrast, and textual descriptions. Acceptance: controls work and measurement boundaries remain clear.
 - [x] **Phase 7 — Analyze:** write reproducible findings with actual values/years in `frontend/docs/findings.md`; document methods and limitations. Acceptance: every finding is supported by processed data.
-- [ ] **Phase 8 — Deploy:** test locally, publish source and configure GitHub Pages with appropriate authorization, verify the public site, and add repository/live links. Acceptance: live charts and interactions work.
+- [x] **Phase 8 — Deploy:** test locally, publish source and configure GitHub Pages with appropriate authorization, verify the public site, and add repository/live links. Acceptance: live charts and interactions work.
 - [ ] **Phase 9 — Deliver:** prepare a 10-minute presentation plus 2-minute Q&A outline, 4–6 page report material, and submission checklist. Acceptance: verified links, findings, and required deliverables; request personal identifiers only when needed.
 
 Complete and report each phase's checks before starting the next phase; wait for user approval between phases as specified in the supplied build plan.
@@ -105,6 +105,8 @@ Repository: https://github.com/manwillerc/JobMarketTrendsApplication
 
 The workflow in `.github/workflows/pages.yml` publishes only `frontend/` when `main` is pushed. In repository **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. Workflow setup follows [GitHub's custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
-Expected address after a successful deployment: `https://manwillerc.github.io/JobMarketTrendsApplication/`. This address has not been verified live; deployment is pending. Phase 8 remains incomplete until the deployed charts and controls pass checks.
+Live website: https://manwillerc.github.io/JobMarketTrendsApplication/
+
+Deployment and live browser verification passed November 22, 2026: HTTP 200, ten employment bars, 825 scatter/table records with All occupations selected, occupation search, and mobile layout without uncaught JavaScript errors.
 
 Local checks passed: data regeneration, JavaScript syntax, both charts, filters, empty/error states, and mobile resizing without uncaught JavaScript errors.
