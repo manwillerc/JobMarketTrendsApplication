@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore U.S. employment, median wages, and projected growth by occupation using Bureau of Labor Statistics data.">
+  <title>U.S. Employment Explorer</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.plot.ly/plotly-4.1.1.min.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container">
+      <p class="eyebrow">U.S. employment explorer</p>
+      <h1>Find perspective on your next career.</h1>
+      <p class="intro">Compare the size, pay, and projected growth of occupations across the United States.</p>
+      <p class="period">National estimates · May 2025 wages and employment · 2025–2035 growth projections</p>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <section class="overview" aria-labelledby="overview-title">
+      <div>
+        <p class="eyebrow">The career landscape</p>
+        <h2 id="overview-title">Explore occupations, backed by data.</h2>
+        <p>Employment tells you how large an occupation is. Median pay describes its midpoint wage. Projected growth offers a view of how employment may change over a decade.</p>
+      </div>
+      <div class="data-note">
+        <strong id="data-count">Loading occupation data…</strong>
+        <p>Source: U.S. Bureau of Labor Statistics</p>
+        <a href="./docs/sources.md">Read source details</a>
+      </div>
+    </section>
+    <p id="data-status" role="status" aria-live="polite">Loading the prepared dataset…</p>
+    <noscript><p>Enable JavaScript to load the occupation dataset and interactive charts.</p></noscript>
+    <section class="chart-panel" aria-labelledby="employment-title">
+      <div class="chart-heading">
+        <div><p class="eyebrow">Employment</p><h2 id="employment-title">Which occupations employ the most people?</h2></div>
+        <span class="unit">Estimated jobs</span>
+      </div>
+      <p>The ten largest occupations by estimated employment. Each row shows the full occupation title and job estimate. Bar lengths share a scale from zero to the largest estimate. Employment levels measure jobs, not current job openings.</p>
+      <div id="employment-chart" class="chart" aria-busy="true"><p>Loading employment data…</p></div>
+      <p class="source">Source: <a href="https://www.bls.gov/oes/">BLS Occupational Employment and Wage Statistics</a> · United States · May 2025</p>
+    </section>
+    <section class="chart-panel" aria-labelledby="growth-title">
+      <div class="chart-heading">
+        <div><p class="eyebrow">Pay &amp; outlook</p><h2 id="growth-title">How does pay compare with projected growth?</h2></div>
+        <span class="unit">USD/year · Growth %</span>
+      </div>
+      <p>Median annual wages compared with projected employment change over 2025–2035. Each point represents one occupation with available annual wage data. Choose an occupation group to reduce overlap, then hover or tap for details. Drag across the plot to zoom in.</p>
+      <div class="chart-controls">
+        <label for="occupation-group">Occupation group
+          <select id="occupation-group" disabled><option value="">All occupations</option></select>
+        </label>
+        <label for="occupation-search">Search this group
+          <input id="occupation-search" type="search" placeholder="Occupation title" disabled>
+        </label>
+        <button id="clear-filters" type="button" disabled>Clear filters</button>
+        <button id="reset-scatter" type="button" disabled>Reset zoom</button>
+      </div>
+      <p id="scatter-summary" role="status" aria-live="polite"></p>
+      <div id="growth-chart" class="chart" aria-busy="true"><p>Loading wage and growth data…</p></div>
+      <details class="data-table">
+        <summary>View matching occupations as a table</summary>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Occupation wage and growth table">
+          <table>
+            <caption>Matching occupations · May 2025 wages · 2025–2035 projected growth</caption>
+            <thead><tr><th scope="col">Occupation</th><th scope="col">Annual median wage (USD)</th><th scope="col">Projected growth (%)</th></tr></thead>
+            <tbody id="occupation-rows"></tbody>
+          </table>
+        </div>
+      </details>
+      <p class="source">Sources: <a href="https://www.bls.gov/oes/">BLS OEWS</a> (May 2025 wages) and <a href="https://www.bls.gov/emp/">BLS Employment Projections</a> (2025–2035)</p>
+    </section>
+    <section class="limitations" aria-labelledby="limits-title">
+      <h2 id="limits-title">Read the numbers in context.</h2>
+      <p>These are national estimates, not local salaries or a guarantee of future opportunities. Projections are uncertain. Wage and salary employment estimates exclude self-employment; the projection employment base includes it. Occupations without annual wage estimates are excluded from the pay comparison.</p>
+      <a href="./docs/methodology.md">Data preparation and limitations</a> · <a href="./docs/findings.md">Findings and analysis</a>
+    </section>
+  </main>
+  <footer class="container"><p>U.S. Employment Explorer · Data from the U.S. Bureau of Labor Statistics</p></footer>
+</body>
+</html>
